@@ -11,7 +11,7 @@
  Target Server Version : 80019
  File Encoding         : 65001
 
- Date: 16/04/2020 22:03:01
+ Date: 20/04/2020 20:56:50
 */
 
 SET NAMES utf8mb4;
@@ -30,12 +30,47 @@ CREATE TABLE `user_setting`  (
   PRIMARY KEY (`setting_id`) USING BTREE,
   UNIQUE INDEX `user_id`(`user_id`) USING BTREE,
   CONSTRAINT `user_setting_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 10003 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 10007 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user_setting
 -- ----------------------------
-INSERT INTO `user_setting` VALUES (10002, 10006, 0, '09:00', 30);
+INSERT INTO `user_setting` VALUES (10006, 10010, 0, '09:00', 50);
+
+-- ----------------------------
+-- Table structure for user_signin_10010
+-- ----------------------------
+DROP TABLE IF EXISTS `user_signin_10010`;
+CREATE TABLE `user_signin_10010`  (
+  `signin_id` int(0) NOT NULL AUTO_INCREMENT,
+  `signin_date` timestamp(0) NOT NULL,
+  PRIMARY KEY (`signin_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 10022 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of user_signin_10010
+-- ----------------------------
+INSERT INTO `user_signin_10010` VALUES (10001, '2019-09-02 00:00:00');
+INSERT INTO `user_signin_10010` VALUES (10002, '2019-09-03 00:00:00');
+INSERT INTO `user_signin_10010` VALUES (10003, '2019-09-04 00:00:00');
+INSERT INTO `user_signin_10010` VALUES (10004, '2019-09-06 00:00:00');
+INSERT INTO `user_signin_10010` VALUES (10005, '2019-09-07 00:00:00');
+INSERT INTO `user_signin_10010` VALUES (10006, '2019-09-07 00:00:00');
+INSERT INTO `user_signin_10010` VALUES (10007, '2019-09-08 00:00:00');
+INSERT INTO `user_signin_10010` VALUES (10008, '2019-09-09 00:00:00');
+INSERT INTO `user_signin_10010` VALUES (10009, '2019-09-10 00:00:00');
+INSERT INTO `user_signin_10010` VALUES (10010, '2019-09-10 00:00:00');
+INSERT INTO `user_signin_10010` VALUES (10011, '2019-10-02 00:00:00');
+INSERT INTO `user_signin_10010` VALUES (10012, '2019-10-02 00:00:00');
+INSERT INTO `user_signin_10010` VALUES (10013, '2019-10-02 00:00:00');
+INSERT INTO `user_signin_10010` VALUES (10014, '2019-10-08 00:00:00');
+INSERT INTO `user_signin_10010` VALUES (10015, '2019-10-09 00:00:00');
+INSERT INTO `user_signin_10010` VALUES (10016, '2019-11-02 00:00:00');
+INSERT INTO `user_signin_10010` VALUES (10017, '2019-11-03 00:00:00');
+INSERT INTO `user_signin_10010` VALUES (10018, '2019-11-04 00:00:00');
+INSERT INTO `user_signin_10010` VALUES (10019, '2019-11-04 00:00:00');
+INSERT INTO `user_signin_10010` VALUES (10020, '2019-11-05 00:00:00');
+INSERT INTO `user_signin_10010` VALUES (10021, '2019-11-05 00:00:00');
 
 -- ----------------------------
 -- Table structure for users
@@ -49,42 +84,722 @@ CREATE TABLE `users`  (
   PRIMARY KEY (`user_id`) USING BTREE,
   UNIQUE INDEX `session_key`(`session_key`) USING BTREE,
   UNIQUE INDEX `openid`(`openid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10007 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 10011 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (10006, 'Areya_', 'LEy0IzoV68ICETCfqkkacQ==', 'oPY2I5AIoJW_aq7oyAkL-Z49jj8M');
+INSERT INTO `users` VALUES (10010, 'Areya_', 'bftqE/RNAmrZTwon6uetDQ==', 'oPY2I5AIoJW_aq7oyAkL-Z49jj8M');
 
 -- ----------------------------
--- Table structure for word_learning
+-- Table structure for word_learning_10010
 -- ----------------------------
-DROP TABLE IF EXISTS `word_learning`;
-CREATE TABLE `word_learning`  (
+DROP TABLE IF EXISTS `word_learning_10010`;
+CREATE TABLE `word_learning_10010`  (
   `wl_id` int(0) NOT NULL AUTO_INCREMENT,
   `word_id` int(0) NOT NULL,
   `isCollect` int(0) NULL DEFAULT 0,
   `study_num` int(0) NULL DEFAULT 0,
   `write_num` int(0) NULL DEFAULT 0,
   PRIMARY KEY (`wl_id`) USING BTREE,
-  UNIQUE INDEX `word_id`(`word_id`) USING BTREE,
-  CONSTRAINT `word_learning_ibfk_1` FOREIGN KEY (`word_id`) REFERENCES `words_details` (`word_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 10001 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+  INDEX `word_id`(`word_id`) USING BTREE,
+  CONSTRAINT `word_learning_10010_ibfk_1` FOREIGN KEY (`word_id`) REFERENCES `words_details` (`word_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 10692 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Table structure for word_learning_10006
+-- Records of word_learning_10010
 -- ----------------------------
-DROP TABLE IF EXISTS `word_learning_10006`;
-CREATE TABLE `word_learning_10006`  (
-  `wl_id` int(0) NOT NULL AUTO_INCREMENT,
-  `word_id` int(0) NOT NULL,
-  `isCollect` int(0) NULL DEFAULT 0,
-  `study_num` int(0) NULL DEFAULT 0,
-  `write_num` int(0) NULL DEFAULT 0,
-  PRIMARY KEY (`wl_id`) USING BTREE,
-  UNIQUE INDEX `word_id`(`word_id`) USING BTREE,
-  CONSTRAINT `word_learning_10006_ibfk_1` FOREIGN KEY (`word_id`) REFERENCES `words_details` (`word_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 10001 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+INSERT INTO `word_learning_10010` VALUES (10001, 10694, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10002, 10695, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10003, 10696, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10004, 10697, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10005, 10698, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10006, 10699, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10007, 10700, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10008, 10701, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10009, 10702, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10010, 10703, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10011, 10704, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10012, 10705, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10013, 10706, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10014, 10707, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10015, 10708, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10016, 10709, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10017, 10710, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10018, 10711, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10019, 10712, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10020, 10713, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10021, 10714, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10022, 10715, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10023, 10716, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10024, 10717, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10025, 10718, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10026, 10719, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10027, 10720, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10028, 10721, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10029, 10722, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10030, 10723, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10031, 10724, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10032, 10725, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10033, 10726, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10034, 10727, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10035, 10728, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10036, 10729, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10037, 10730, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10038, 10731, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10039, 10732, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10040, 10733, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10041, 10734, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10042, 10735, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10043, 10736, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10044, 10737, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10045, 10738, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10046, 10739, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10047, 10740, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10048, 10741, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10049, 10742, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10050, 10743, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10051, 10744, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10052, 10745, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10053, 10746, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10054, 10747, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10055, 10748, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10056, 10749, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10057, 10750, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10058, 10751, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10059, 10752, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10060, 10753, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10061, 10754, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10062, 10755, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10063, 10756, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10064, 10757, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10065, 10758, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10066, 10759, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10067, 10760, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10068, 10761, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10069, 10762, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10070, 10763, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10071, 10764, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10072, 10765, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10073, 10766, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10074, 10767, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10075, 10768, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10076, 10769, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10077, 10770, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10078, 10771, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10079, 10772, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10080, 10773, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10081, 10774, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10082, 10775, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10083, 10776, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10084, 10777, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10085, 10778, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10086, 10779, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10087, 10780, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10088, 10781, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10089, 10782, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10090, 10783, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10091, 10784, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10092, 10785, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10093, 10786, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10094, 10787, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10095, 10788, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10096, 10789, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10097, 10790, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10098, 10791, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10099, 10792, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10100, 10793, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10101, 10794, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10102, 10795, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10103, 10796, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10104, 10797, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10105, 10798, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10106, 10799, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10107, 10800, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10108, 10801, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10109, 10802, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10110, 10803, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10111, 10804, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10112, 10805, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10113, 10806, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10114, 10807, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10115, 10808, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10116, 10809, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10117, 10810, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10118, 10811, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10119, 10812, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10120, 10813, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10121, 10814, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10122, 10815, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10123, 10816, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10124, 10817, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10125, 10818, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10126, 10819, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10127, 10820, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10128, 10821, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10129, 10822, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10130, 10823, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10131, 10824, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10132, 10825, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10133, 10826, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10134, 10827, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10135, 10828, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10136, 10829, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10137, 10830, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10138, 10831, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10139, 10832, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10140, 10833, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10141, 10834, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10142, 10835, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10143, 10836, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10144, 10837, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10145, 10838, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10146, 10839, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10147, 10840, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10148, 10841, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10149, 10842, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10150, 10843, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10151, 10844, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10152, 10845, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10153, 10846, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10154, 10847, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10155, 10848, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10156, 10849, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10157, 10850, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10158, 10851, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10159, 10852, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10160, 10853, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10161, 10854, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10162, 10855, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10163, 10856, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10164, 10857, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10165, 10858, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10166, 10859, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10167, 10860, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10168, 10861, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10169, 10862, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10170, 10863, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10171, 10864, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10172, 10865, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10173, 10866, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10174, 10867, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10175, 10868, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10176, 10869, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10177, 10870, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10178, 10871, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10179, 10872, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10180, 10873, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10181, 10874, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10182, 10875, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10183, 10876, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10184, 10877, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10185, 10878, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10186, 10879, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10187, 10880, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10188, 10881, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10189, 10882, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10190, 10883, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10191, 10884, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10192, 10885, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10193, 10886, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10194, 10887, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10195, 10888, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10196, 10889, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10197, 10890, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10198, 10891, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10199, 10892, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10200, 10893, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10201, 10894, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10202, 10895, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10203, 10896, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10204, 10897, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10205, 10898, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10206, 10899, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10207, 10900, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10208, 10901, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10209, 10902, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10210, 10903, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10211, 10904, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10212, 10905, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10213, 10906, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10214, 10907, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10215, 10908, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10216, 10909, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10217, 10910, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10218, 10911, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10219, 10912, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10220, 10913, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10221, 10914, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10222, 10915, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10223, 10916, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10224, 10917, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10225, 10918, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10226, 10919, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10227, 10920, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10228, 10921, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10229, 10922, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10230, 10923, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10231, 10924, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10232, 10925, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10233, 10926, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10234, 10927, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10235, 10928, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10236, 10929, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10237, 10930, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10238, 10931, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10239, 10932, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10240, 10933, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10241, 10934, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10242, 10935, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10243, 10936, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10244, 10937, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10245, 10938, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10246, 10939, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10247, 10940, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10248, 10941, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10249, 10942, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10250, 10943, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10251, 10944, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10252, 10945, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10253, 10946, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10254, 10947, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10255, 10948, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10256, 10949, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10257, 10950, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10258, 10951, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10259, 10952, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10260, 10953, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10261, 10954, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10262, 10955, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10263, 10956, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10264, 10957, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10265, 10958, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10266, 10959, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10267, 10960, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10268, 10961, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10269, 10962, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10270, 10963, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10271, 10964, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10272, 10965, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10273, 10966, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10274, 10967, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10275, 10968, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10276, 10969, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10277, 10970, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10278, 10971, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10279, 10972, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10280, 10973, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10281, 10974, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10282, 10975, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10283, 10976, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10284, 10977, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10285, 10978, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10286, 10979, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10287, 10980, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10288, 10981, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10289, 10982, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10290, 10983, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10291, 10984, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10292, 10985, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10293, 10986, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10294, 10987, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10295, 10988, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10296, 10989, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10297, 10990, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10298, 10991, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10299, 10992, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10300, 10993, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10301, 10994, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10302, 10995, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10303, 10996, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10304, 10997, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10305, 10998, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10306, 10999, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10307, 11000, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10308, 11001, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10309, 11002, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10310, 11003, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10311, 11004, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10312, 11005, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10313, 11006, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10314, 11007, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10315, 11008, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10316, 11009, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10317, 11010, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10318, 11011, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10319, 11012, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10320, 11013, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10321, 11014, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10322, 11015, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10323, 11016, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10324, 11017, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10325, 11018, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10326, 11019, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10327, 11020, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10328, 11021, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10329, 11022, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10330, 11023, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10331, 11024, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10332, 11025, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10333, 11026, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10334, 11027, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10335, 11028, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10336, 11029, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10337, 11030, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10338, 11031, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10339, 11032, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10340, 11033, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10341, 11034, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10342, 11035, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10343, 11036, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10344, 11037, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10345, 11038, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10346, 11039, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10347, 11040, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10348, 11041, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10349, 11042, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10350, 11043, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10351, 11044, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10352, 11045, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10353, 11046, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10354, 11047, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10355, 11048, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10356, 11049, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10357, 11050, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10358, 11051, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10359, 11052, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10360, 11053, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10361, 11054, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10362, 11055, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10363, 11056, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10364, 11057, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10365, 11058, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10366, 11059, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10367, 11060, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10368, 11061, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10369, 11062, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10370, 11063, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10371, 11064, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10372, 11065, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10373, 11066, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10374, 11067, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10375, 11068, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10376, 11069, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10377, 11070, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10378, 11071, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10379, 11072, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10380, 11073, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10381, 11074, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10382, 11075, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10383, 11076, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10384, 11077, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10385, 11078, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10386, 11079, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10387, 11080, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10388, 11081, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10389, 11082, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10390, 11083, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10391, 11084, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10392, 11085, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10393, 11086, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10394, 11087, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10395, 11088, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10396, 11089, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10397, 11090, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10398, 11091, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10399, 11092, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10400, 11093, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10401, 11094, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10402, 11095, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10403, 11096, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10404, 11097, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10405, 11098, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10406, 11099, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10407, 11100, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10408, 11101, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10409, 11102, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10410, 11103, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10411, 11104, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10412, 11105, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10413, 11106, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10414, 11107, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10415, 11108, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10416, 11109, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10417, 11110, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10418, 11111, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10419, 11112, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10420, 11113, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10421, 11114, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10422, 11115, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10423, 11116, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10424, 11117, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10425, 11118, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10426, 11119, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10427, 11120, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10428, 11121, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10429, 11122, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10430, 11123, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10431, 11124, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10432, 11125, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10433, 11126, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10434, 11127, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10435, 11128, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10436, 11129, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10437, 11130, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10438, 11131, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10439, 11132, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10440, 11133, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10441, 11134, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10442, 11135, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10443, 11136, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10444, 11137, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10445, 11138, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10446, 11139, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10447, 11140, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10448, 11141, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10449, 11142, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10450, 11143, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10451, 11144, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10452, 11145, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10453, 11146, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10454, 11147, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10455, 11148, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10456, 11149, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10457, 11150, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10458, 11151, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10459, 11152, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10460, 11153, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10461, 11154, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10462, 11155, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10463, 11156, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10464, 11157, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10465, 11158, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10466, 11159, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10467, 11160, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10468, 11161, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10469, 11162, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10470, 11163, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10471, 11164, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10472, 11165, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10473, 11166, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10474, 11167, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10475, 11168, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10476, 11169, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10477, 11170, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10478, 11171, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10479, 11172, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10480, 11173, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10481, 11174, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10482, 11175, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10483, 11176, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10484, 11177, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10485, 11178, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10486, 11179, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10487, 11180, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10488, 11181, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10489, 11182, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10490, 11183, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10491, 11184, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10492, 11185, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10493, 11186, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10494, 11187, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10495, 11188, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10496, 11189, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10497, 11190, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10498, 11191, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10499, 11192, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10500, 11193, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10501, 11194, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10502, 11195, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10503, 11196, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10504, 11197, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10505, 11198, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10506, 11199, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10507, 11200, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10508, 11201, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10509, 11202, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10510, 11203, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10511, 11204, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10512, 11205, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10513, 11206, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10514, 11207, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10515, 11208, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10516, 11209, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10517, 11210, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10518, 11211, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10519, 11212, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10520, 11213, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10521, 11214, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10522, 11215, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10523, 11216, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10524, 11217, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10525, 11218, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10526, 11219, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10527, 11220, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10528, 11221, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10529, 11222, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10530, 11223, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10531, 11224, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10532, 11225, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10533, 11226, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10534, 11227, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10535, 11228, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10536, 11229, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10537, 11230, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10538, 11231, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10539, 11232, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10540, 11233, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10541, 11234, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10542, 11235, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10543, 11236, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10544, 11237, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10545, 11238, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10546, 11239, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10547, 11240, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10548, 11241, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10549, 11242, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10550, 11243, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10551, 11244, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10552, 11245, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10553, 11246, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10554, 11247, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10555, 11248, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10556, 11249, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10557, 11250, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10558, 11251, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10559, 11252, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10560, 11253, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10561, 11254, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10562, 11255, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10563, 11256, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10564, 11257, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10565, 11258, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10566, 11259, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10567, 11260, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10568, 11261, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10569, 11262, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10570, 11263, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10571, 11264, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10572, 11265, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10573, 11266, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10574, 11267, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10575, 11268, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10576, 11269, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10577, 11270, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10578, 11271, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10579, 11272, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10580, 11273, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10581, 11274, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10582, 11275, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10583, 11276, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10584, 11277, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10585, 11278, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10586, 11279, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10587, 11280, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10588, 11281, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10589, 11282, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10590, 11283, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10591, 11284, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10592, 11285, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10593, 11286, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10594, 11287, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10595, 11288, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10596, 11289, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10597, 11290, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10598, 11291, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10599, 11292, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10600, 11293, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10601, 11294, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10602, 11295, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10603, 11296, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10604, 11297, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10605, 11298, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10606, 11299, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10607, 11300, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10608, 11301, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10609, 11302, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10610, 11303, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10611, 11304, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10612, 11305, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10613, 11306, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10614, 11307, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10615, 11308, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10616, 11309, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10617, 11310, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10618, 11311, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10619, 11312, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10620, 11313, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10621, 11314, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10622, 11315, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10623, 11316, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10624, 11317, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10625, 11318, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10626, 11319, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10627, 11320, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10628, 11321, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10629, 11322, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10630, 11323, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10631, 11324, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10632, 11325, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10633, 11326, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10634, 11327, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10635, 11328, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10636, 11329, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10637, 11330, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10638, 11331, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10639, 11332, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10640, 11333, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10641, 11334, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10642, 11335, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10643, 11336, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10644, 11337, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10645, 11338, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10646, 11339, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10647, 11340, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10648, 11341, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10649, 11342, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10650, 11343, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10651, 11344, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10652, 11345, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10653, 11346, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10654, 11347, 0, 1, 0);
+INSERT INTO `word_learning_10010` VALUES (10655, 11348, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10656, 11349, 0, 1, 0);
+INSERT INTO `word_learning_10010` VALUES (10657, 11350, 0, 1, 0);
+INSERT INTO `word_learning_10010` VALUES (10658, 11351, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10659, 11352, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10660, 11353, 0, 1, 0);
+INSERT INTO `word_learning_10010` VALUES (10661, 11354, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10662, 11355, 0, 1, 0);
+INSERT INTO `word_learning_10010` VALUES (10663, 11356, 0, 1, 0);
+INSERT INTO `word_learning_10010` VALUES (10664, 11357, 0, 1, 0);
+INSERT INTO `word_learning_10010` VALUES (10665, 11358, 0, 1, 0);
+INSERT INTO `word_learning_10010` VALUES (10666, 11359, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10667, 11360, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10668, 11361, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10669, 11362, 0, 1, 0);
+INSERT INTO `word_learning_10010` VALUES (10670, 11363, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10671, 11364, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10672, 11365, 0, 1, 0);
+INSERT INTO `word_learning_10010` VALUES (10673, 11366, 0, 1, 0);
+INSERT INTO `word_learning_10010` VALUES (10674, 11367, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10675, 11368, 0, 1, 0);
+INSERT INTO `word_learning_10010` VALUES (10676, 11369, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10677, 11370, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10678, 11371, 0, 1, 0);
+INSERT INTO `word_learning_10010` VALUES (10679, 11372, 0, 1, 0);
+INSERT INTO `word_learning_10010` VALUES (10680, 11373, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10681, 11374, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10682, 11375, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10683, 11376, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10684, 11377, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10685, 11378, 0, 1, 0);
+INSERT INTO `word_learning_10010` VALUES (10686, 11379, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10687, 11380, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10688, 11381, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10689, 11382, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10690, 11383, 0, 0, 0);
+INSERT INTO `word_learning_10010` VALUES (10691, 11384, 0, 0, 0);
 
 -- ----------------------------
 -- Table structure for words_details
@@ -110,12 +825,11 @@ CREATE TABLE `words_details`  (
   `degree_two` int(0) NOT NULL,
   PRIMARY KEY (`word_id`) USING BTREE,
   UNIQUE INDEX `word`(`word`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10693 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 11385 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of words_details
 -- ----------------------------
-INSERT INTO `words_details` VALUES (10693, 'yard', 'jɑːrd', 'n.码(长度单位)', '', '', '', '', '', '', '', 'I was out in the back yard splitting logs.=我那时正在后院劈柴。=We planted some elms in the yard.=我们在院子里种了一些榆树。=Her carriage was the most beautiful one in the yard.=她的马车是院子里最漂亮的。=He parked his car in the yard.=他把车停在院子里。=Three feet make one yard.=三英尺为一码。=', '过去式: yarded 过去分词: yarded 现在分词: yarding 第三人称单数: yards ', 3, 9, 0, 2);
 INSERT INTO `words_details` VALUES (10694, 'yawn', 'jɔːn', 'n.呵欠；乏味的人（事）', '', 'v.打呵欠；张开', '', '', '', '', '', 'His long boring story made me yawn.=他的冗长的故事听得我直打呵欠。=He closed the book, yawned, and went to bed.=他合起书, 打了个呵欠, 然后上床睡觉了。=The deep crevasse yawned at their feet.=他们脚下的冰川有一道深深的裂缝。=I gave a loud yawn, but he just kept on talking.=我大声打了个呵欠，可他还是不停地讲下去。=', '名词: yawner 过去式: yawned 过去分词: yawned 现在分词: yawning 第三人称单数: yawns ', 9, 4, 2, 1);
 INSERT INTO `words_details` VALUES (10695, 'year', 'jɪr', 'n.年；年度；年龄；学年', '', '', '', '', '', '', '', 'Winter is the coldest season in a year.=冬季是一年中最冷的季节。=The thief was put into prison for one year.=小偷被监禁一年。=She was designated sportswoman of the year.=她被指定为本年度的体坛明星。=She is sixteen years old but has a mental age of five.=她十六岁，而智力年龄是五岁。=', '', 8, 7, 2, 2);
 INSERT INTO `words_details` VALUES (10696, 'yearly', '\'jɪrli', '', '', '', 'adj.每年的', 'adv.每年地；一年一次地', '', '', '', 'The yearly conference will be held next month.=年会下个月举行。=Many Greek cities had to send yearly tribute to Athens.=许多希腊城市不得不每年向雅典进贡。=Property values appreciated yearly.=财产价值每年都在增大。=The meeting is held yearly.=会议每年举行一次。=', '名词复数: yearlies ', 0, 3, 0, 0);
